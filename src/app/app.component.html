@@ -1,0 +1,27 @@
+<!-- App -->
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ title }}</h3>
+        </div>
+        <div class="panel-body">
+            <p [ngStyle]="{ 'color' : resetColor }">{{ title }}</p>
+            <button (click)="control.changeColor('yellow')" type="button" class="btn btn-primary">Reset</button>
+        </div>
+    </div>
+</div>
+<!-- Control -->
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <app-control
+        #control
+        ref-control
+        [color]="resetColor"
+        (selectedColor)="changeColor($event)"
+    ></app-control>
+</div>
+<!-- Result -->
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <app-preview
+        [color]="resetColor"
+    ></app-preview>
+</div>
